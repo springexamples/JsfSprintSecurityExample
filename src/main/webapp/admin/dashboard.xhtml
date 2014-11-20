@@ -3,6 +3,10 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
+<h:head>
+	<h:outputScript library="primefaces" name="jquery/jquery.js" />
+</h:head>
+
 <f:view>
 	<h:form>
 		Welcome to Dashboard!
@@ -10,6 +14,17 @@
 		
 		<br />
 		<a href="../j_spring_security_logout">Logout?</a>
+
+		<hr />
+
+		<p:growl id="msgs" showDetail="true" />
+
+		<h:panelGrid columns="2" cellpadding="5">
+			<p:outputLabel value="Simple:" for="acSimple" />
+			<p:autoComplete id="acSimple" value="#{dashboardBean.txt1}"
+				completeMethod="#{dashboardBean.completeText}" />
+		</h:panelGrid>
+
 	</h:form>
 </f:view>
 
